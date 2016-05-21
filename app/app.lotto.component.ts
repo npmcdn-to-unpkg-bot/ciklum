@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { Lotto, LottoInfo, LottoDate} from './lotto';
+import { Lotto, LottoInfo, LottoDate, LottoOdd} from './lotto';
 import { LottoService } from './app.lotto.service';
 
 @Component({
