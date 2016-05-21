@@ -1,0 +1,103 @@
+<section *ngIf="lotto" class="lotto">
+	<header>
+		<div class="lotto-title title">EuroJackpot Results For {{lotto.last.date.day + '.' + lotto.last.date.month + '.' + lotto.last.date.year}}</div>	
+	</header>
+
+	<div class="lotto-results">
+		<span class="numbers" *ngFor="let item of lotto.last.numbers">{{item}}</span>
+		<span class="numbers euro" *ngFor="let item of lotto.last.euroNumbers">{{item}}</span>
+	</div>
+
+	<div class="lotto-odds">
+		<table><tbody>
+			<tr>
+				<td>Tier I</td>
+				<td>5 Numbers, 2 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 1) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 1)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+			
+			<tr>
+				<td>Tier II</td>
+				<td>5 Numbers, 1 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 2) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 2)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier III</td>
+				<td>5 Numbers, 0 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 3) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 3)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier IV</td>
+				<td>4 Numbers, 2 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 4) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 4)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier V</td>
+				<td>4 Numbers, 1 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 5) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 5)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier VI</td>
+				<td>4 Numbers, 0 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 6) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 6)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier VII</td>
+				<td>3 Numbers, 2 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 7) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 7)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier VIII</td>
+				<td>2 Numbers, 2 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 8) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 8)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier IX</td>
+				<td>3 Numbers, 1 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 9) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 9)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier X</td>
+				<td>3 Numbers, 0 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 10) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 10)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier XI</td>
+				<td>1 Numbers, 2 Euronumbers</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 11) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 11)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>
+
+			<tr>
+				<td>Tier XII</td>
+				<td>2 Numbers, 1 Euronumber</td>
+				<td>{{getOddWinnerByIndex(lotto.last, 12) | number:'1.0-2' }}</td>
+				<td>{{getOddPrizeByIndex(lotto.last, 12)/100 | currency:'EUR':true:'1.2-2' }}</td>
+			</tr>	
+		</tbody></table>
+	</div>
+	
+</section>
+
+<section *ngIf="error" class="error">
+	There was an error while trying to get the results , please try again in a while. Check if your browser has disabled the CORS control.
+</section>
